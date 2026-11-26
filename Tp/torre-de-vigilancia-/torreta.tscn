@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bj3i06dymacqs"]
+
+[ext_resource type="Script" uid="uid://beo2sbu2lgfi" path="res://torreta.gd" id="1_k81vp"]
+[ext_resource type="AudioStream" uid="uid://bdwc5c3ude5e0" path="res://freesound_community-submachine-gun-79846.mp3" id="2_ythaa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4cy6"]
+albedo_color = Color(0.11764706, 0.11764706, 0.13333334, 1)
+metallic = 0.7
+roughness = 0.35
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylpju"]
+albedo_color = Color(1, 0.8666667, 0.26666668, 1)
+emission_enabled = true
+emission = Color(1, 0.6666667, 0, 1)
+emission_energy_multiplier = 4.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k81vp"]
+material = SubResource("StandardMaterial3D_ylpju")
+top_radius = 0.02
+bottom_radius = 0.02
+height = 1.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_orua6"]
+albedo_color = Color(1, 0.93333334, 0.46666667, 1)
+emission_enabled = true
+emission = Color(1, 0.6, 0, 1)
+emission_energy_multiplier = 4.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_jpyye"]
+material = SubResource("StandardMaterial3D_orua6")
+radius = 0.14
+height = 0.28
+
+[node name="Torreta" type="Node3D" unique_id=1152784144]
+script = ExtResource("1_k81vp")
+
+[node name="PivoteHorizontal" type="Node3D" parent="." unique_id=1148335858]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="PivoteHorizontal" unique_id=1331846785]
+
+[node name="PivoteVertical" type="Node3D" parent="PivoteHorizontal" unique_id=221764256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="PivoteHorizontal/PivoteVertical" unique_id=825165637]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="PivoteHorizontal/PivoteVertical" unique_id=219297461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.28, -0.8)
+size = Vector3(0.14, 0.18, 1.6)
+material = SubResource("StandardMaterial3D_c4cy6")
+
+[node name="RayoDisparo" type="RayCast3D" parent="PivoteHorizontal/PivoteVertical" unique_id=78984380]
+target_position = Vector3(0, 0, -100)
+collide_with_areas = true
+
+[node name="BalaVisual" type="MeshInstance3D" parent="PivoteHorizontal/PivoteVertical" unique_id=1693712804]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.35, -0.28, -1.7)
+mesh = SubResource("CylinderMesh_k81vp")
+
+[node name="Fogonazo" type="MeshInstance3D" parent="PivoteHorizontal/PivoteVertical" unique_id=1064808374]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.28, -1.65)
+mesh = SubResource("SphereMesh_jpyye")
+
+[node name="SonidoDisparo" type="AudioStreamPlayer" parent="." unique_id=630036608]
+stream = ExtResource("2_ythaa")
+volume_db = -16.0

@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://dwwsle3bqftwq"]
+
+[ext_resource type="Script" uid="uid://dbmf4npfi2sw5" path="res://menu_inicio.gd" id="1_wkv36"]
+[ext_resource type="Texture2D" uid="uid://0al0tqyu86as" path="res://images.jpg" id="2_ylpju"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpyye"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.050980393, 0.05490196, 0.07058824, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.24313726, 0.16470589, 0.13333334, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_jpyye"]
+outline_size = 2
+
+[node name="MenuInicio" type="Control" unique_id=235670012]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wkv36")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1608794849]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ylpju")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="PanelMenu" type="PanelContainer" parent="." unique_id=1283612236]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.5
+offset_top = -80.0
+offset_right = 153.5
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jpyye")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelMenu" unique_id=1042584797]
+layout_mode = 2
+
+[node name="Titulo" type="Label" parent="PanelMenu/VBoxContainer" unique_id=70314811]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SUPERVIVENCIA EN EL CEMENTERIO"
+label_settings = SubResource("LabelSettings_jpyye")
+
+[node name="BotonJugar" type="Button" parent="PanelMenu/VBoxContainer" unique_id=1100673381]
+layout_mode = 2
+text = "JUGAR
+"
+
+[node name="BotonAjustes" type="Button" parent="PanelMenu/VBoxContainer" unique_id=416485019]
+layout_mode = 2
+text = "AJUSTES"
+
+[node name="BotonSalir" type="Button" parent="PanelMenu/VBoxContainer" unique_id=1479673118]
+layout_mode = 2
+text = "SALIR
+"
+
+[node name="PanelAjustes" type="PanelContainer" parent="." unique_id=269993732]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -135.0
+offset_right = 122.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jpyye")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelAjustes" unique_id=1098805120]
+layout_mode = 2
+
+[node name="Ajustes" type="Label" parent="PanelAjustes/VBoxContainer" unique_id=828941666]
+layout_mode = 2
+text = "AJUSTES"
+
+[node name="Volumen" type="Label" parent="PanelAjustes/VBoxContainer" unique_id=974544923]
+layout_mode = 2
+text = "Volumen"
+
+[node name="SliderVolumen" type="HSlider" parent="PanelAjustes/VBoxContainer" unique_id=102834504]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Sens" type="Label" parent="PanelAjustes/VBoxContainer" unique_id=251281427]
+layout_mode = 2
+text = "Sensibilidad del Mouse"
+
+[node name="SliderSensibilidad" type="HSlider" parent="PanelAjustes/VBoxContainer" unique_id=353327818]
+layout_mode = 2
+min_value = 0.001
+max_value = 0.01
+step = 0.001
+value = 0.003
+
+[node name="CheckPantallaCompleta" type="CheckButton" parent="PanelAjustes/VBoxContainer" unique_id=252603454]
+layout_mode = 2
+text = "Pantalla Completa"
+
+[node name="Resolucion" type="Label" parent="PanelAjustes/VBoxContainer" unique_id=2037060616]
+layout_mode = 2
+text = "Resolución (Modo Ventana)"
+
+[node name="OpcionResolucion" type="OptionButton" parent="PanelAjustes/VBoxContainer" unique_id=1752138500]
+layout_mode = 2
+
+[node name="BotonCerrarAjustes" type="Button" parent="PanelAjustes/VBoxContainer" unique_id=615074212]
+layout_mode = 2
+text = "GUARDAR Y VOLVER"

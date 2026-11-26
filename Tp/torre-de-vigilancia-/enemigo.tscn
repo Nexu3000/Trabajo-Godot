@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bxsxtwrutmnc"]
+
+[ext_resource type="Script" uid="uid://qpjtpjwek8du" path="res://enemigo.gd" id="1_becj5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_becj5"]
+size = Vector3(1, 1.45, 0.85)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6mgk"]
+albedo_color = Color(0.16862746, 0.2, 0.23921569, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jpyye"]
+material = SubResource("StandardMaterial3D_j6mgk")
+size = Vector3(0.6, 0.9, 0.35)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78o6w"]
+albedo_color = Color(0.36078432, 0.47843137, 0.32941177, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_orua6"]
+material = SubResource("StandardMaterial3D_78o6w")
+size = Vector3(0.45, 0.45, 0.45)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qb201"]
+albedo_color = Color(0.36078432, 0.47843137, 0.32941177, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o88mx"]
+material = SubResource("StandardMaterial3D_qb201")
+size = Vector3(0.18, 0.18, 0.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kx82d"]
+albedo_color = Color(0.36078432, 0.47843137, 0.32941177, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_34wtv"]
+material = SubResource("StandardMaterial3D_kx82d")
+size = Vector3(0.18, 0.18, 0.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l35e2"]
+albedo_color = Color(1, 0.8, 0, 1)
+emission_enabled = true
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ljh7b"]
+material = SubResource("StandardMaterial3D_l35e2")
+size = Vector3(0.3, 0.08, 0.05)
+
+[node name="Enemigo" type="Area3D" unique_id=1409772045]
+script = ExtResource("1_becj5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1295154969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -0.15)
+shape = SubResource("BoxShape3D_becj5")
+
+[node name="Torso" type="MeshInstance3D" parent="." unique_id=189689396]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("BoxMesh_jpyye")
+
+[node name="Cabeza" type="MeshInstance3D" parent="." unique_id=1678484842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("BoxMesh_orua6")
+
+[node name="BrazoIzquierdo" type="MeshInstance3D" parent="." unique_id=1894396116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42, 0.35, -0.35)
+mesh = SubResource("BoxMesh_o88mx")
+
+[node name="BrazoDerecho" type="MeshInstance3D" parent="." unique_id=1385839129]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42, 0.35, -0.35)
+mesh = SubResource("BoxMesh_34wtv")
+
+[node name="Ojos" type="MeshInstance3D" parent="." unique_id=1972746317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82, -0.23)
+mesh = SubResource("BoxMesh_ljh7b")
